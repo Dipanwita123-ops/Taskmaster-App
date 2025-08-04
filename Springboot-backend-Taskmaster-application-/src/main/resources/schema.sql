@@ -1,0 +1,8 @@
+CREATE TABLE Todo (
+ 
+  Id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(255),
+  Description VARCHAR(255),
+  TargetDate DATE,
+  Done BOOLEAN
+);

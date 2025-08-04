@@ -1,0 +1,51 @@
+<h1>Todo List</h1>
+
+<div class ="alert alert-success" *ngIf='message'>{{message}}</div>
+
+<div clas="container">
+<table class="table">
+
+<thead>
+<tr>
+
+<th>Description</th>
+<th>Target Date</th>
+<th>Completion</th>
+<th>Delete</th>
+<th>Update</th>
+
+
+</tr>
+</thead>
+
+<tbody>
+
+  <!-- mapping each todo from list of todos  into html using *ngFor 
+  which is similar to for loop => for(Todo todo:todos){ } -->
+
+  <!-- for(Todo todo:todos){ -->
+   <tr *ngFor = "let todo of todos">
+      
+  <td>{{todo.Description}}</td>
+
+
+       <!-- use of Angular feature called Pipe -->
+<td>{{todo.TargetDate | date |uppercase}}</td>
+
+<td>{{todo.Done}}</td>
+
+<td><button (click)="updateTodo(todo.Id)" class="btn btn-success">Update</button></td>
+<td><button (click)="deleteTodo(todo.Id)" class="btn btn-warning">Delete</button></td>
+        </tr>
+  <!-- } -->
+
+</tbody>
+
+</table>
+
+<div class ="row">
+  <button (click) ="addTodo()" class="btn btn-success">Add</button>
+</div>
+
+
+</div>
