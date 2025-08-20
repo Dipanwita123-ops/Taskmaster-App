@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {map} from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+
 
 // @Injectable({providedIn: 'root'}-It tells Angular:
 //  "Create one shared instance (singleton) of this service, and make it available app-wide
@@ -22,7 +24,7 @@ executeJWTAuthenticationService(username , password){
   
               
   
-     return this.http.post<any>(`http://localhost:8080/authenticate` ,
+     return this.http.post<any>(`${environment.apiUrl}/authenticate` ,
           {
            username,
            password   
@@ -65,7 +67,7 @@ map(
     }
   );
   
-     return this.http.get<AuthenticationBean>(`http://localhost:8080/basicauth` ,
+     return this.http.get<AuthenticationBean>(`${environment.apiUrl}/basicauth` ,
           {headers,
           withCredentials: true
       }).pipe(

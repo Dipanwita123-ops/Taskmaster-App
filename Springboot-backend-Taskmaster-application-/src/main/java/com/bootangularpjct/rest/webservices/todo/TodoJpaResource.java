@@ -21,7 +21,14 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 
 
-@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
+//@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
+@CrossOrigin(
+	    origins = {
+	        "http://localhost:4200",
+	        "http://angularbucketui.s3-website-ap-southeast-2.amazonaws.com"
+	    },
+	    allowCredentials = "true"
+	)
 @RestController
 public class TodoJpaResource {
 

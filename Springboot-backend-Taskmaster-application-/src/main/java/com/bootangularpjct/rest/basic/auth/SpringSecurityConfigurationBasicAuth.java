@@ -55,7 +55,8 @@ public class SpringSecurityConfigurationBasicAuth{
 	@Bean
 	public CorsConfigurationSource corsConfigurationSource() {
 	    CorsConfiguration configuration = new CorsConfiguration();
-	    configuration.setAllowedOriginPatterns(List.of("http://localhost:4200")); // use pattern-based origins
+	    configuration.addAllowedOriginPattern("*");//Testing purpose
+	   // configuration.setAllowedOriginPatterns(List.of("http://localhost:4200")); // use pattern-based origins
 	    configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 	    configuration.setAllowedHeaders(List.of("*"));
 	    configuration.setAllowCredentials(true); // VERY IMPORTANT

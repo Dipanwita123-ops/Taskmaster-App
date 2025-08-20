@@ -1,5 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +18,7 @@ export class WelcomeDataService {
 
   executeHelloWorldBeanService(){
 
-   return this.http.get('http://localhost:8080/hello-world-bean');
+   return this.http.get('${environment.apiUrl}/hello-world-bean');
   }
 
 //http://localhost:8080/hello-world/path-variable/Dipanwita
@@ -30,7 +33,7 @@ executeHelloWorldBeanServiceWithPathVariable(name){
 //   }
 // );
 
-   return this.http.get(`http://localhost:8080/hello-world/path-variable` ,
+   return this.http.get(`${environment.apiUrl}/hello-world/path-variable` ,
        
       // {headers,
       //   withCredentials: true
